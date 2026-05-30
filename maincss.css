@@ -1,0 +1,628 @@
+/* ========================================================== */
+/* 1. الاعدادات العامة والمشتركة لجميع صفحات الموقع            */
+/* ========================================================== */
+html {
+    scroll-behavior: smooth; /* ميزة التمرير السلس عند الانتقال بين القوائم */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 100px; 
+    background-color: #f5f4f8; 
+    color: #333;
+}
+
+/* ========================================================== */
+/* شريط التنقل العلوي الثابت */
+/* ========================================================== */
+.header {
+    background-color: #435470;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    min-height: 65px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap; /* أهم شيء للذكاء */
+}
+
+/* كل مجموعات الهيدر */
+.header-right-side,
+.header-left-side,
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap; /* يسمح بالانتقال لسطر ثاني عند الحاجة */
+}
+
+/* الشعار */
+.logo-img {
+    height: 45px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+/* الأزرار */
+.nav-img {
+    width: 78px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.nav-img:hover {
+    transform: scale(1.05);
+}
+
+/* تحسين للموبايل */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-img {
+        width: 65px;
+        height: 28px;
+    }
+
+    .logo-img {
+        height: 38px;
+    }
+}
+
+
+/* ========================================================== */
+/* التعديل الذهبي: حل مشكلة اختفاء القائمة المنسدلة بسرعة     */
+/* ========================================================== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px; /* مساحة جسر غير مرئية تمنع انغلاق القائمة عند تحريك الماوس للأسفل */
+    margin-bottom: -15px;
+}
+
+/* تصميم الزر المكتوب عليه "القوائم" بجانب الشعار */
+.dropdown-btn {
+    background-color: #ffffff;
+    color: #435470;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-btn:hover {
+    background-color: #334259;
+    color: white;
+}
+
+/* محتوى القائمة المنسدلة */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0; 
+    background-color: #ffffff;
+    min-width: 170px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1001;
+    top: 45px; /* تم تعديله بدقة ليلتصق بمسار الزر تماما بدون أي فراغات قاتلة للمؤشر */
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #435470;
+    color: white;
+}
+
+/* إظهار القائمة بسلاسة وثبات تام دون انقطاع */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ========================================================== */
+/* 3. التنسيقات الخاصة بالصفحة الرئيسية (Main.html)            */
+/* ========================================================== */
+.main-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.info-side {
+    flex: 1;
+    text-align: right;
+}
+
+.info-side h1 {
+    color: #435470; 
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-side p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.main-store-btn {
+    display: inline-block;
+    background-color: #435470; 
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.main-store-btn:hover {
+    background-color: #334259;
+    transform: translateY(-2px);
+}
+
+.image-grid-side {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    max-width: 500px;
+}
+
+.grid-img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* ========================================================== */
+/* 4. تنسيقات صفحة المتجر بالقوائم والتفاصيل                   */
+/* ========================================================== */
+.store-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.store-main-title {
+    color: #435470;
+    font-size: 26px;
+    text-align: right;
+    margin-bottom: 35px;
+    border-bottom: 3px solid #435470;
+    padding-bottom: 10px;
+}
+
+.category-section {
+    margin-bottom: 50px;
+    scroll-margin-top: 110px; /* يمنع اختفاء عنوان القسم خلف الهيدر الثابت أثناء القفز */
+}
+
+.category-title {
+    color: #435470;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 20px;
+    background-color: #e6ecf5;
+    padding: 10px 15px;
+    border-right: 5px solid #435470;
+    border-radius: 4px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
+}
+
+.grid-4-columns {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;  /* أهم سطر: يخليها مربع */
+    object-fit: cover;     /* يقص الصورة بشكل جميل بدون تشويه */
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+
+.product-card h3 {
+    color: #435470;
+    font-size: 18px;
+    margin: 8px 0;
+    text-align: right;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.product-new-details {
+    text-align: right;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.detail-item {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin: 6px 0;
+}
+
+.detail-item strong {
+    color: #435470;
+}
+
+.price-text {
+    font-size: 15px;
+    font-weight: bold;
+    color: #e44d26; 
+}
+
+.details-btn {
+    background-color: #435470;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.details-btn:hover {
+    background-color: #334259;
+}
+
+.promo-video-section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.promo-video-section h2 {
+    color: #435470;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.video-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.promo-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.video-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* ========================================================== */
+/* 5. الفوتر المشترك لجميع الصفحات                            */
+/* ========================================================== */
+.bottom-blue-box {
+    background-color: #435470; 
+    color: white;
+    padding: 30px 40px;
+    margin-top: 100px;
+    position: relative;
+    text-align: center;
+    min-height: 100px;
+}
+
+.bottom-links {
+    position: absolute;
+    bottom: 20px;
+    right: 40px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: right;
+}
+
+.bottom-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bottom-links a:hover {
+    text-decoration: underline; 
+}
+
+.project-info {
+    display: inline-block;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.project-info p {
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+/* تنسيقات صفحة العربة العامة */
+.cart-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    min-height: 60vh;
+}
+
+.cart-main-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* تنسيق الجدول */
+.cart-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-table th {
+    background-color: #2c3e50;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-quantity-input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* أزرار الحذف وإتمام الشراء */
+.delete-item-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-item-btn:hover {
+    background-color: #c0392b;
+}
+
+/* صندوق الملخص الكلي */
+.cart-summary-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.summary-box {
+    width: 100%;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.free-shipping {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.summary-divider {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.cart-actions-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.checkout-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #219653;
+}
+
+.continue-shopping-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #7f8c8d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.continue-shopping-btn:hover {
+    background-color: #95a5a6;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 120px; /* لأن الهيدر ممكن يلتف سطرين */
+    }
+
+    /* الهيدر يصير عمودي شوي بدل ما يزحم */
+    .header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .header-right-side,
+    .header-left-side,
+    .nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* تصغير الأزرار */
+    .nav-img {
+        width: 60px;
+        height: 26px;
+    }
+
+    /* الشعار */
+    .logo-img {
+        height: 40px;
+    }
+
+    /* المتجر: عمود واحد بدل 3 */
+    .products-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* لو فيه 4 أعمدة */
+    .grid-4-columns {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* الصفحة الرئيسية تصير عمودية */
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-grid-side {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* الفوتر */
+    .bottom-blue-box {
+        text-align: center;
+    }
+
+    .bottom-links {
+        position: static;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>متجر موسيقاتي - سلة الطلبات</title>
+    <link rel="stylesheet" href="maincss.css">
+</head>
+<body>
+
+<div class="header">
+
+    <div class="header-right-side">
+        <img src="شعار متجر موسيقاتي.png"
+             alt="شعار موسيقاتي"
+             class="logo-img">
+        <p style="color: aliceblue;">متجر موسيقاتي</p>
+    </div>
+
+    <div class="nav">
+        <a href="index.html"><img src="زر الرئيسية.png" alt="الرئيسية" class="nav-img"></a>
+        <a href="store.html"><img src="زر المتجر.png" alt="المتجر" class="nav-img"></a>
+        <a href="cart.html"><img src="زر سلة الطلبات.png" alt="السلة" class="nav-img"></a>
+        <a href="contact.html"><img src="زر تواصل معنا.png" alt="تواصل معنا" class="nav-img"></a>
+        <a href="about.html"><img src="من نحن.png" alt="من نحن" class="nav-img"></a>
+    </div>
+
+</div> 
+
+    <div class="cart-container">
+        <h1 class="cart-main-title">سلة الطلبات</h1>
+
+        <div class="cart-table-wrapper">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>الصورة</th>
+                        <th>اسم المنتج</th>
+                        <th>السعر</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="cart-summary-section">
+            <div class="summary-box">
+                <div class="summary-row total-row">
+                    <span>المجموع:</span>
+                    <span class="final-price" id="final-price-display">0 د.أ</span>
+                </div>
+                <div class="cart-actions-btns">
+                    <button class="checkout-btn" id="checkout-btn">تأكيد عملية الشراء</button>
+                    <button class="clear-cart-btn" id="clear-cart-btn">تفريغ العربة</button>
+                    <a href="store.html" class="continue-shopping-btn">العودة للمتجر ومتابعة التسوق</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-blue-box">
+        <div class="bottom-links">
+            <a href="app.html" target="_blank">تحميل تطبيق موسيقاتي</a>
+            <a href="https://wa.me/9627XXXXXXXX" target="_blank">الانتقال الى واتساب</a>
+            <a href="https://instagram.com/MOSIQATI" target="_blank">الانتقال الى انستاجرام</a>
+        </div>
+        <div class="project-info">
+            <p>اسم المشروع: موقع ويب لمتجر موسيقاتي</p>
+            <p>المقيم: إميل الطوال</p>
+            <p>الطالب: ماجد الحامد</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
